@@ -7,11 +7,13 @@ The engine receives a transport callable, so every included test runs against de
 ## Install
 
 ```bash
-python -m pip install api-reliability-kit
+python -m pip install https://github.com/jblaz6335/api-reliability-kit/releases/download/v0.1.0/api_reliability_kit-0.1.0-py3-none-any.whl
 api-reliability-kit
 ```
 
 The command prints a deterministic JSON run showing a synthetic HTTP 429 retry, two cursor pages, exact-duplicate suppression, normalized records, and resumable state.
+
+PyPI publication is pending. After the package appears at `pypi.org/project/api-reliability-kit`, the shorter `python -m pip install api-reliability-kit` command will also work.
 
 ## Run
 
