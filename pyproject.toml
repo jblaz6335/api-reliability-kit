@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api-reliability-kit"
+version = "0.1.0"
+description = "Credential-free API pagination, retry, deduplication, checkpoint, and normalization proof"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Blaz Algo Systems" }]
+keywords = [
+  "api",
+  "automation",
+  "deduplication",
+  "idempotency",
+  "pagination",
+  "reliability",
+  "retry",
+  "webhook",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Testing",
+]
+
+[project.urls]
+"Hosted API" = "https://rapidapi.com/jblaz6335/api/blaz-webhook-reliability-api"
+"Free browser demo" = "https://blazalgosystems.itch.io/python-api-reliability-demo"
+"Support and implementation" = "https://ko-fi.com/s/fd75e9be8a"
+
+[project.scripts]
+api-reliability-kit = "api_reliability.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
