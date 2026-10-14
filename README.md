@@ -4,6 +4,21 @@ Credential-free proof for the failure paths that make small API automations unre
 
 The engine receives a transport callable, so every included test runs against deterministic scripted responses. It makes no network requests and contains no credentials.
 
+## Example result
+
+The bundled CLI processes scripted responses with no network access:
+
+| Input or failure | Result |
+| --- | --- |
+| First response is HTTP 429 | Retry within the configured bound |
+| Two cursor pages contain A-1, A-2 and A-2, A-3 | Return three unique records |
+| Nested `profile.name` fields | Normalize to the configured `name` field |
+| Completed run | Emit JSON records, audit events, and resumable state |
+
+## Design and verification
+
+The [engine](src/api_reliability/engine.py) accepts an injected transport, making failure cases reproducible. The [tests](tests/test_engine.py) cover rate limits, retry exhaustion, authentication failures, malformed JSON, repeated cursors, identifier conflicts, and state round trips. The [CLI](src/api_reliability/cli.py) shows how to compose a source specification and inspect the result.
+
 ## Install
 
 ```bash
